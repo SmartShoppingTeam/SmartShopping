@@ -1,0 +1,6 @@
+Server (extension av ServerSocket):
+	User sendUserData()
+
+Client (extension av Socket):
+	User getUserData()
+
