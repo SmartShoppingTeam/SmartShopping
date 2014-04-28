@@ -8,6 +8,7 @@ Client (extension av Socket):
 
 User:
 	Purchase[] purchases()
+	void addPurchase()
 
 Purchase:
 	HashMap<String, Double> items
