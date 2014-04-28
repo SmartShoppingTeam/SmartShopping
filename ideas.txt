@@ -5,6 +5,7 @@ Server (extension av ServerSocket):
 
 Client (extension av Socket):
 	User getUserData(String userName)
+	void addPurchase(Purchase, User)
 
 User:
 	Purchase[] purchases()
