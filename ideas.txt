@@ -15,6 +15,46 @@ Purchase:
 	HashMap<String, Double> items
 	double sum
 	Date date
+	
+	
+------------------------------------------------------------------------------------------------------	
+	//Sebastian
+	
+Server
+	- Acknowledge request, establish connection
+	- Write to client
+	- Read from client
+	
+	* Database
+	- Handle user data
+		- txt files that saves the user data (en kludge men funkar)
+		* Kan läsa av filerna och skapa antingen en hashad lista eller någon annan.
+	- Handle purchase
+	
+	
+	
+Client
+	- Send request to establish connection
+	- Acknowledge connection
+	- Write to server
+	- Read from server
+	- Input interpreter
+	
+
+
+
+/*	Vi gör bara en enkel hårdkodad test grej för detta.
+
+User:
+	Purchase[] purchases()
+	void addPurchase()
+
+Purchase:
+	HashMap<String, Double> items
+	double sum
+	Date date
+
+*/
 
  
 
