@@ -1,6 +1,19 @@
 Server (extension av ServerSocket):
+	ArrayList<User> users
 	User sendUserData()
 
 Client (extension av Socket):
-	User getUserData()
+	User getUserData(String userName)
+
+User:
+	Purchase[] purchases()
+
+Purchase:
+	HashMap<String, Double> items
+	double sum
+	Date date
+
+ 
+
+
 
