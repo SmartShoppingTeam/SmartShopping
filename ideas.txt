@@ -1,4 +1,5 @@
 Server (extension av ServerSocket):
+	// Create from text file
 	ArrayList<User> users
 	User sendUserData()
 
