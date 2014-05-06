@@ -1,3 +1,7 @@
+
+
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,6 +17,7 @@ public class ConnectToServer {
 //		userdata = new Userdata();
 		login = new UserLogin();
 //		keyboard = new KeyboardReader();
+		isConnected = false;
 		establishConnection(ipAddr, portNumb);
 		try {
 			if(! validateUser(login.run())) {
@@ -42,6 +47,8 @@ public class ConnectToServer {
 	private BufferedReader in;
 	private PrintWriter out;
 	private ObjectInputStream objIn;
+	
+	private boolean isConnected;
 		
 	
 	
@@ -51,9 +58,11 @@ public class ConnectToServer {
 	 * Catches exception if no host was found or IOException. 	 
 	 */
 	private void establishConnection(String ipAddr, int portNumb) {
-		while(! conn.isConnected()) {
+		while(! isConnected) {
 			try {
 				conn = new Socket(ipAddr, portNumb);
+				isConnected = true;
+				System.out.println("Connected");
 				in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 				out = new PrintWriter(conn.getOutputStream());
 				objIn = new ObjectInputStream(conn.getInputStream());
@@ -160,3 +169,4 @@ public class ConnectToServer {
 	
 
 }
+
