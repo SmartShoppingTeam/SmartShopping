@@ -12,8 +12,8 @@ import java.net.UnknownHostException;
 
 
 
-public class ConnectToServer {
-	protected ConnectToServer(String ipAddr, int portNumb) {
+public class ConnectionToServer {
+	protected ConnectionToServer(String ipAddr, int portNumb) {
 //		userdata = new Userdata();
 		login = new UserLogin();
 //		keyboard = new KeyboardReader();
@@ -29,7 +29,7 @@ public class ConnectToServer {
 //			System.exit(1);
 			forceShutdown();
 		}
-	} protected Userdata run() {
+	} protected UserData run() {
 		userdata = receiveObject();
 		closeConnection();
 		return userdata;
@@ -38,7 +38,7 @@ public class ConnectToServer {
 	/**
 	 * 
 	 */
-	private Userdata userdata;
+	private UserData userdata;
 	private UserLogin login;
 //	private KeyboardReader keyboard;
 	
@@ -154,10 +154,10 @@ public class ConnectToServer {
 	/**
 	 * Tries to receive an object sent over the socket.
 	 */
-	private Userdata receiveObject() {
-		Userdata userdataTemp = null;
+	private UserData receiveObject() {
+		UserData userdataTemp = null;
 		try {
-			userdataTemp = (Userdata) objIn.readObject();
+			userdataTemp = (UserData) objIn.readObject();
 		} catch (ClassNotFoundException e) {
 			forceShutdown();
 		} catch (IOException e) {

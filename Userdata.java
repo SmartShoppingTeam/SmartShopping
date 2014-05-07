@@ -1,15 +1,5 @@
+import java.io.Serializable;
 
-
-
-
-
-
-
-
-
-public class Userdata {
-	protected Userdata() {
-		
-	}
+public class UserData implements Serializable {
 
 }

@@ -13,7 +13,7 @@ public class Client {
 		
 	} protected Client() {
 		keyboard = new KeyboardReader();
-		connServ = new ConnectToServer(getIpAddr(), getPortNumb());
+		connServ = new ConnectionToServer(getIpAddr(), getPortNumb());
 		
 		
 	} protected void run() {
@@ -23,9 +23,9 @@ public class Client {
 	/**
 	 * 
 	 */
-	private Userdata userdata;
+	private UserData userdata;
 	private KeyboardReader keyboard;
-	private ConnectToServer connServ;
+	private ConnectionToServer connServ;
 	
 	
 	
