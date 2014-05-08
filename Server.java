@@ -15,7 +15,7 @@ public class Server extends ServerSocket {
 		while(failed) {
 			String req = listenForRequest(); // We wait for a value from client.
 			System.out.println(req);
-			failed = sendUser(readUserData(req));
+			failed = sendUser(readUserDataFromFile(req));
 		}
 		try {
 			Thread.sleep(20000);
@@ -57,10 +57,10 @@ public class Server extends ServerSocket {
 	/**
 	* Reads UserData from a file with 
 	*/
-	private UserData readUserData(String username) {
+	private UserData readUserDataFromFile(String userhash) {
 		UserData user = null;
 		try {
-			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(username + ".txt"));
+			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(userhash + ".usr"));
 			user = (UserData)readFromFile.readObject();
 			readFromFile.close();
 		} catch (IOException e) {
@@ -68,7 +68,6 @@ public class Server extends ServerSocket {
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		user = new UserData(); //TODO: Remove this.
 		return user;
 	}
 
