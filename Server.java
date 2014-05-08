@@ -55,7 +55,7 @@ public class Server extends ServerSocket {
 		userhash = userhash.replace("userID: ", "");
 		UserData user = null;
 		try {
-			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(new File(userhash + ".usr")));
+			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(new File("UserData" + File.separator + userhash + ".usr")));
 			user = (UserData)readFromFile.readObject();
 			readFromFile.close();
 		} catch (IOException e) {

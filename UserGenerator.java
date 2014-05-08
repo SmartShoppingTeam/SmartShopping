@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class UserGenerator {
 	public static void saveUserToFile(UserData user, String userName, String password) throws IOException{
-		File file = new File(UserLogin.hashUserdata(userName, password) + ".usr");
+		File file = new File("UserData" + File.separator + UserLogin.hashUserdata(userName, password) + ".usr");
 		file.createNewFile();
 		ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(file));
 		stream.writeObject(user);
