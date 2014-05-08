@@ -17,12 +17,6 @@ public class Server extends ServerSocket {
 			System.out.println(req);
 			failed = sendUser(readUserDataFromFile(req));
 		}
-		try {
-			Thread.sleep(20000);
-		} catch(InterruptedException e) {
-			e.printStackTrace();
-			System.exit(0);
-		}
 		close();
 	}
 
@@ -58,9 +52,10 @@ public class Server extends ServerSocket {
 	* Reads UserData from a file with 
 	*/
 	private UserData readUserDataFromFile(String userhash) {
+		userhash = userhash.replace("userID: ", "");
 		UserData user = null;
 		try {
-			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(userhash + ".usr"));
+			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(new File(userhash + ".usr")));
 			user = (UserData)readFromFile.readObject();
 			readFromFile.close();
 		} catch (IOException e) {
