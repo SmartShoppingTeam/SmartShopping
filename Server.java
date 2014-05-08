@@ -14,11 +14,13 @@ public class Server extends ServerSocket {
 		boolean failed = true;
 		while(failed) {
 			String req = listenForRequest(); // We wait for a value from client.
+			System.out.println(req);
 			failed = sendUser(readUserData(req));
 		}
 		try {
 			Thread.sleep(20000);
 		} catch(InterruptedException e) {
+			e.printStackTrace();
 			System.exit(0);
 		}
 		close();
@@ -29,7 +31,9 @@ public class Server extends ServerSocket {
 	* @return The request sent by client.
 	*/
 	private String listenForRequest() throws IOException{
+		System.out.println("Before reader const");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+		System.out.println("After reader const");
 		return reader.readLine();
 	}
 
@@ -38,19 +42,23 @@ public class Server extends ServerSocket {
 	* @return Whether or not user is null.
 	*/
 	private boolean sendUser(UserData user) throws IOException{
+		System.out.println("Sending user: " + user);
 		if(user != null) {
+			out.writeObject("VU");
+			out.flush();
 			out.writeObject(user);
-			return true;
+			out.flush();
+			return false;
 		}
-		out.writeObject("User does not exist");
-		return false;
+		out.writeObject("NVU");
+		return true;
 	}
 
 	/**
 	* Reads UserData from a file with 
 	*/
 	private UserData readUserData(String username) {
-		UserData user = new UserData();
+		UserData user = null;
 		try {
 			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(username + ".txt"));
 			user = (UserData)readFromFile.readObject();
@@ -60,6 +68,7 @@ public class Server extends ServerSocket {
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		user = new UserData(); //TODO: Remove this.
 		return user;
 	}
 

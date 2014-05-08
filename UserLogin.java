@@ -30,7 +30,7 @@ public class UserLogin {
 	 * Creates a key by combining the users username and password.
 	 * Returns it in the form of a string.
 	 */	
-	private String hashUserdata(String username, String password) {		
+	public static String hashUserdata(String username, String password) {		
 		return Integer.toString((username+password).hashCode());
 	}	
 }

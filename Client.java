@@ -9,8 +9,7 @@ import java.io.IOException;
 public class Client {
 	public static void main(String[] args) {
 		Client client = new Client();
-		client.run();
-		
+		client.run();		
 	} protected Client() {
 		keyboard = new KeyboardReader();
 		connServ = new ConnectionToServer(getIpAddr(), getPortNumb());
@@ -72,7 +71,4 @@ public class Client {
 		}
 		return portNumb;
 	}
-	
-	
-
 }

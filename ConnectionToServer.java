@@ -121,11 +121,14 @@ public class ConnectionToServer {
 	 *  if neither of those answers are received it ....
 	 */
 	private boolean validateUser(String userID) {
+		System.out.println(userID);
 		out.println("userID: " + userID);
+		out.flush();
+		System.out.println(userID);
 		String answer = "";
 		
 		try {
-			answer = in.readLine();
+			answer = (String)objIn.readObject();
 			
 			if (answer.equals("VU")) {	// VU = Valid User
 				return true;
@@ -136,6 +139,8 @@ public class ConnectionToServer {
 				// Mabye error msg and system exit. 
 			}
 		} catch (IOException e) {
+			forceShutdown();
+		} catch (ClassNotFoundException e) {
 			forceShutdown();
 		}
 		
@@ -157,6 +162,7 @@ public class ConnectionToServer {
 	private UserData receiveObject() {
 		UserData userdataTemp = null;
 		try {
+			System.out.println("Reading object");
 			userdataTemp = (UserData) objIn.readObject();
 		} catch (ClassNotFoundException e) {
 			forceShutdown();
