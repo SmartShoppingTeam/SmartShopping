@@ -3,12 +3,14 @@ import java.net.*;
 
 public class Server extends ServerSocket {
 	Socket client;
+	private ObjectOutputStream out;
 	/**
 	* Creates a Server that listens on portnumber
 	*/
 	public Server(int portnumber) throws IOException{
 		super(portnumber);
 		client = accept();
+		out = new ObjectOutputStream(client.getOutputStream());
 		boolean failed = true;
 		while(failed) {
 			String req = listenForRequest(); // We wait for a value from client.
@@ -36,7 +38,6 @@ public class Server extends ServerSocket {
 	* @return Whether or not user is null.
 	*/
 	private boolean sendUser(UserData user) throws IOException{
-		ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
 		if(user != null) {
 			out.writeObject(user);
 			return true;
@@ -49,7 +50,7 @@ public class Server extends ServerSocket {
 	* Reads UserData from a file with 
 	*/
 	private UserData readUserData(String username) {
-		UserData user = null;
+		UserData user = new UserData();
 		try {
 			ObjectInputStream readFromFile = new ObjectInputStream(new FileInputStream(username + ".txt"));
 			user = (UserData)readFromFile.readObject();

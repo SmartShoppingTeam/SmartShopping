@@ -17,7 +17,8 @@ public class Client {
 		
 		
 	} protected void run() {
-		userdata = connServ.run();		
+		userdata = connServ.run();
+		System.out.println(userdata);		
 	}
 	
 	/**
