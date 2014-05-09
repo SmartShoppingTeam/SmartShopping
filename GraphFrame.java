@@ -49,7 +49,7 @@ public class GraphFrame extends JFrame {
 		time6.set(2024, 6, 5);
 		data.addPurchase(new Purchase(800, 88, time6));
 
-		GraphFrame frame = new GraphFrame();
+		GraphFrame frame = new GraphFrame(data);
 		
 	}
 }
