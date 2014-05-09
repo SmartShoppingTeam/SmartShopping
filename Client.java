@@ -17,7 +17,7 @@ public class Client {
 		
 	} protected void run() {
 		userdata = connServ.run();
-		System.out.println(userdata);		
+		GraphFrame frame = new GraphFrame(userdata);
 	}
 	
 	/**

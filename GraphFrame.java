@@ -3,11 +3,30 @@ import java.util.*;
 import java.awt.*;
 
 public class GraphFrame extends JFrame {
-	public GraphFrame() {
+	public GraphFrame(UserData data) {
 		super("Smart Shopper");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800, 500);
 		setVisible(true);
+
+		GraphPanel pan = new GraphPanel(data, "Environmental effect") {
+			public int calculateYCoord(Purchase purchase) {
+				double divisor = (double)purchase.getEnvironmentEffect() / (getHeight() + 1);
+				return (int)(50 + purchase.getEnvironmentEffect() / (divisor + 1));
+			}
+		};
+
+		GraphPanel pan2 = new GraphPanel(data, "Cost of purchase") {
+			public int calculateYCoord(Purchase purchase) {
+				double divisor = (double)purchase.getAmount() / (getHeight() + 1);
+				return (int)(purchase.getAmount() / (divisor + 1));
+			}
+		};
+		JSplitPane pane = new JSplitPane();
+		pane.setLeftComponent(pan);
+		pane.setRightComponent(pan2);
+		add(pane);
+		revalidate();
 	}
 
 	public static void main(String[] args) {
@@ -31,23 +50,6 @@ public class GraphFrame extends JFrame {
 		data.addPurchase(new Purchase(800, 88, time6));
 
 		GraphFrame frame = new GraphFrame();
-		GraphPanel pan = new GraphPanel(data, "Environmental effect") {
-			public int calculateYCoord(Purchase purchase) {
-				double divisor = (double)purchase.getEnvironmentEffect() / (getHeight() + 1);
-				return (int)(50 + purchase.getEnvironmentEffect() / (divisor + 1));
-			}
-		};
-
-		GraphPanel pan2 = new GraphPanel(data, "Cost of purchase") {
-			public int calculateYCoord(Purchase purchase) {
-				double divisor = (double)purchase.getAmount() / (getHeight() + 1);
-				return (int)(purchase.getAmount() / (divisor + 1));
-			}
-		};
-		JSplitPane pane = new JSplitPane();
-		pane.setLeftComponent(pan);
-		pane.setRightComponent(pan2);
-		frame.add(pane);
-		frame.revalidate();
+		
 	}
 }
