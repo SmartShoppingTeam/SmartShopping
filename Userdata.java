@@ -10,4 +10,8 @@ public class UserData implements Serializable {
 	public void addPurchase(Purchase p) {
 		purchases.add(p);
 	}
+
+	public Iterator getPurchases() {
+		return purchases.iterator();
+	}
 }
