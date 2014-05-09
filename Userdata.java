@@ -9,9 +9,10 @@ public class UserData implements Serializable {
 	}
 	public void addPurchase(Purchase p) {
 		purchases.add(p);
+		Collections.sort(purchases);
 	}
 
-	public Iterator getPurchases() {
-		return purchases.iterator();
+	public ArrayList<Purchase> getPurchases() {
+		return purchases;
 	}
 }

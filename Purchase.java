@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.Serializable;
 
-class Purchase implements Serializable{
+class Purchase implements Serializable, Comparable{
 	private int amount;
 	private int environmentEffect;
 	private Calendar date;
@@ -22,11 +22,26 @@ class Purchase implements Serializable{
 	/**
 	* @return An indicator of environmental effect of this purchase.
 	*/
-	public int getEnvironmenEffect() {
+	public int getEnvironmentEffect() {
 		return environmentEffect;
 	}
 
 	public Date getDate() {
 		return date.getTime();
+	}
+
+	@Override
+	public int compareTo(Object other) {
+		if(other instanceof Purchase) {
+			// int temp = (int)(-((Purchase)other).getDate().getTime() + getDate().getTime());
+			// System.out.println(((Purchase)(other)).getDate().toString());
+			// System.out.println(getDate().toString());
+			// System.out.println(temp);
+			// return temp;
+			long l = ((Purchase)other).getDate().getTime();
+			return new Long(getDate().getTime()).compareTo(new Long(l));
+		}
+		System.out.println("hey");
+		return 0; // Bad things happens. 
 	}
 }
