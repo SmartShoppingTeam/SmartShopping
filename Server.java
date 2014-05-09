@@ -17,6 +17,11 @@ public class Server extends ServerSocket {
 			System.out.println(req);
 			failed = sendUser(readUserDataFromFile(req));
 		}
+		try {
+			Thread.sleep(20000);
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 		close();
 	}
 
