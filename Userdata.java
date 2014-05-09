@@ -1,5 +1,5 @@
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.*;
 
 public class UserData implements Serializable {
 	public ArrayList<Purchase> purchases;

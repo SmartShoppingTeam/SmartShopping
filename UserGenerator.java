@@ -17,7 +17,7 @@ public class UserGenerator {
 		try {
 			UserData me = new UserData();
 			me.addPurchase(new Purchase(500, 20, Calendar.getInstance()));
-			saveUserToFile(me, "God King Zorblax", "password123");
+			saveUserToFile(me, "PiratPelle", "sudd");
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

@@ -12,10 +12,16 @@ class Purchase implements Serializable{
 		this.date = date;
 	}
 
+	/**
+	* @return The cost of the purchase
+	*/
 	public int getAmount() {
 		return amount;
 	}
 
+	/**
+	* @return An indicator of environmental effect of this purchase.
+	*/
 	public int getEnvironmenEffect() {
 		return environmentEffect;
 	}
@@ -23,5 +29,4 @@ class Purchase implements Serializable{
 	public Date getDate() {
 		return date.getTime();
 	}
-
 }
