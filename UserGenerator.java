@@ -2,6 +2,7 @@ import java.io.ObjectOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.*;
 
 public class UserGenerator {
 	public static void saveUserToFile(UserData user, String userName, String password) throws IOException{
@@ -15,6 +16,7 @@ public class UserGenerator {
 	public static void main(String[] args) {
 		try {
 			UserData me = new UserData();
+			me.addPurchase(new Purchase(500, 20, Calendar.getInstance()));
 			saveUserToFile(me, "God King Zorblax", "password123");
 		} catch(IOException e) {
 			e.printStackTrace();
