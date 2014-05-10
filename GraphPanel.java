@@ -26,7 +26,8 @@ public abstract class GraphPanel extends JPanel{
 				x = newX;
 				y = newY;
 			}
-		g.drawString(desc, getWidth()/3, 30);
+		g.drawString(desc, 5, 30);
+		g.drawString("Time", getWidth() - 50, getHeight() - 10);
 		repaint();
 	}
 

@@ -11,10 +11,11 @@ public class Server extends ServerSocket {
 		super(portnumber);
 		client = accept();
 		out = new ObjectOutputStream(client.getOutputStream());
+		System.out.println("Connected to user");
 		boolean failed = true;
 		while(failed) {
 			String req = listenForRequest(); // We wait for a value from client.
-			System.out.println(req);
+			System.out.println("Sending user");
 			failed = sendUser(readUserDataFromFile(req));
 		}
 		try {
@@ -22,6 +23,7 @@ public class Server extends ServerSocket {
 		} catch(InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("Session complete, shutting down.");
 		close();
 	}
 
@@ -30,9 +32,7 @@ public class Server extends ServerSocket {
 	* @return The request sent by client.
 	*/
 	private String listenForRequest() throws IOException{
-		System.out.println("Before reader const");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-		System.out.println("After reader const");
 		return reader.readLine();
 	}
 

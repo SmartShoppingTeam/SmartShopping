@@ -18,7 +18,7 @@ public class GraphFrame extends JFrame {
 
 		GraphPanel pan2 = new GraphPanel(data, "Cost of purchase") {
 			public int calculateYCoord(Purchase purchase) {
-				double divisor = (double)purchase.getAmount() / (getHeight() + 1);
+				double divisor = (double)purchase.getAmount() / (getHeight() -50);
 				return (int)(purchase.getAmount() / (divisor + 1));
 			}
 		};
