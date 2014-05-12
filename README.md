@@ -16,3 +16,14 @@ The application in its current state is designed to be run from the command line
 4. Run Client.class
 5. Enter ip-adress of server and the port number that you decided on earlier when the client asks for them.
 6. Enter username and password when they are asked for. Below is a list of current existing users:
+
+Note that everything is case sensitive.
+
+Username: PiratPelle
+Password: sudd
+
+Username: Bug McBug
+Password: password
+
+Username: Simple
+Password: Mordor
