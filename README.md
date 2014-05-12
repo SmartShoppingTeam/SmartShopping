@@ -19,14 +19,11 @@ The application in its current state is designed to be run from the command line
 
 Note that everything is case sensitive.
 
-Username: PiratPelle
-
+Username: PiratPelle  
 Password: sudd
 
-Username: Bug McBug
-
+Username: Bug McBug  
 Password: password
 
-Username: Simple
-
+Username: Simple  
 Password: Mordor
