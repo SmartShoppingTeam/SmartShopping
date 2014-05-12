@@ -73,9 +73,14 @@ public class Server extends ServerSocket {
 
 	public static void main(String[] args) {
 		try {
-			new Server(8080);
+			int port = Integer.parseInt(args[0]);
+			new Server(port);
 		} catch(IOException e) {
 			e.printStackTrace();
+		} catch(NumberFormatException e) {
+			System.err.println("Argument must be number");
+		} catch(ArrayIndexOutOfBoundsException e) {
+			System.err.println("Must provide port number as argument. Ex: java Server 8080");
 		}
 	}
 }
