@@ -20,10 +20,13 @@ The application in its current state is designed to be run from the command line
 Note that everything is case sensitive.
 
 Username: PiratPelle
+
 Password: sudd
 
 Username: Bug McBug
+
 Password: password
 
 Username: Simple
+
 Password: Mordor
