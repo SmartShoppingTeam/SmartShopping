@@ -1,3 +1,6 @@
+http://www.cesc.kth.se/research/from-data-to-sustainable-practices-1.407881 
+Jorge approves of this idea!
+
 SmartShopping
 =============
 
